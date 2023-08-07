@@ -5,3 +5,8 @@ export type AuthStackParamList = {
 export type HomeStackParamList = {
   Home: undefined;
 };
+
+export type User = {
+  email: string;
+  name: string;
+};

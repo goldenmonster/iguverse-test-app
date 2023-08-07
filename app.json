@@ -1,7 +1,9 @@
 {
   "expo": {
-    "name": "iguverse-test-app",
+    "name": "Iguverse App",
     "slug": "iguverse-test-app",
+    "originalFullName": "@chanhnguyendev/iguverse-test-app",
+    "scheme": "com.iguverse.app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,9 +15,11 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.iguverse.app"
     },
     "android": {
+      "package": "com.iguverse.app",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -23,6 +27,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a46e5440-920d-4d7c-8bb3-77f82a340664"
+      }
+    },
+    "owner": "chanhnguyendev"
   }
 }

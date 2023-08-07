@@ -1,8 +1,10 @@
 import { useState, createContext, useContext, ReactNode, useMemo } from 'react';
 
+import { User } from '../types';
+
 type AuthContextProps = {
-  email: string;
-  setEmail: (email: string) => void;
+  user: User;
+  setUser: (user: User) => void;
   isLoggedIn: boolean;
 };
 
@@ -11,24 +13,30 @@ interface AuthProviderProps {
 }
 
 export const AuthContext = createContext<AuthContextProps>({
-  email: '',
-  setEmail: () => {},
+  user: {
+    email: '',
+    name: '',
+  },
+  setUser: () => {},
   isLoggedIn: false,
 });
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const [email, setEmail] = useState<string>('');
+  const [user, setUser] = useState<{ email: string; name: string }>({
+    email: '',
+    name: '',
+  });
 
   const isLoggedIn = useMemo<boolean>(() => {
-    return !!email;
-  }, [email]);
+    return !!user.email;
+  }, [user]);
 
   return (
     <AuthContext.Provider
       value={{
-        email,
+        user,
         isLoggedIn,
-        setEmail,
+        setUser,
       }}
     >
       {children}
