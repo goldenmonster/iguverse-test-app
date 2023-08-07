@@ -31,16 +31,6 @@ export const Login = ({
       clientId: '1142378370499366',
     });
 
-  const fetchFacebookUserInfo = async (token) => {
-    const userInfoResponse = await fetch(
-      `https://graph.facebook.com/me?access_token=${accessToken}&fields=id,name,email`
-    );
-
-    const userInfo = await userInfoResponse.json();
-
-    setUser(userInfo);
-  };
-
   useEffect(() => {
     if (googleResponse?.type === 'success' && googleResponse.authentication) {
       setAccessToken(googleResponse.authentication.accessToken);
@@ -64,6 +54,7 @@ export const Login = ({
   }, [googleResponse]);
 
   useEffect(() => {
+    console.log(facebookResponse);
     if (
       facebookResponse?.type === 'success' &&
       facebookResponse.authentication
@@ -117,7 +108,7 @@ export const Login = ({
             }}
           >
             <Image
-              source={require('/assets/google-icon.png')}
+              source={require('../../assets/google-icon.png')}
               style={{ width: 40, height: 40 }}
             />
             <Text style={{ fontSize: 15 }}>Sign in Google</Text>
@@ -143,7 +134,7 @@ export const Login = ({
             }}
           >
             <Image
-              source={require('/assets/facebook-icon.png')}
+              source={require('../../assets/facebook-icon.png')}
               style={{ width: 40, height: 40 }}
             />
             <Text style={{ fontSize: 15 }}>Sign in Facebook</Text>
