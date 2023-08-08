@@ -4,7 +4,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import * as Google from 'expo-auth-session/providers/google';
 import * as Facebook from 'expo-auth-session/providers/facebook';
 import * as WebBrowser from 'expo-web-browser';
-import 'expo-dev-client';
+// import 'expo-dev-client';
 
 import { useAuth } from '../providers/AuthProvider';
 import { AuthStackParamList } from '../types';
@@ -54,7 +54,6 @@ export const Login = ({
   }, [googleResponse]);
 
   useEffect(() => {
-    console.log(facebookResponse);
     if (
       facebookResponse?.type === 'success' &&
       facebookResponse.authentication
